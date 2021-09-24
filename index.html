@@ -5,8 +5,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App de reservas de hotel</title>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/script.js" type="text/javascript"></script>
   </head>
   <body>
-    <h1>Bivenidos JuvenTic</h1>
+    <div id="container">
+      <h1>App de reservas de Hotel</h1>
+      <div class="widget">
+        <form id="formulario">
+          <h2>Radio Group</h2>
+          <fieldset>
+            <legend>Seleccione un lugar:</legend>
+            <label for="radio-1">New York</label>
+            <input
+              type="radio"
+              name="radio-lugar"
+              id="radio-1"
+              value="New York"
+              onclick="clickLugar(this)"
+            />
+            <label for="radio-2">Paris</label>
+            <input
+              type="radio"
+              value="Paris"
+              name="radio-lugar"
+              id="radio-2"
+              onclick="clickLugar(this)"
+            />
+            <label for="radio-3">London</label>
+            <input
+              type="radio"
+              name="radio-lugar"
+              id="radio-3"
+              value="London"
+              onclick="clickLugar(this)"
+            />
+          </fieldset>
+          <fieldset>
+            <legend>Seleccione la cantidad de personas:</legend>
+            <label for="radio-1">1</label>
+            <input
+              type="radio"
+              name="radio-personas"
+              value="1"
+              onclick="clickCantPersonas(this)"
+              id="radio-1"
+            />
+            <label for="radio-2">2</label>
+            <input
+              type="radio"
+              name="radio-personas"
+              value="2"
+              onclick="clickCantPersonas(this)"
+              id="radio-2"
+            />
+            <label for="radio-3">3</label>
+            <input
+              type="radio"
+              name="radio-personas"
+              value="3"
+              onclick="clickCantPersonas(this)"
+              id="radio-3"
+            />
+          </fieldset>
+          <fieldset>
+            <legend>Seleccione la fecha de llegada y salida:</legend>
+            <p>Fecha llegada: <input type="text" id="datepicker_llegada" /></p>
+            <p>Fecha salida: <input type="text" id="datepicker_salida" /></p>
+          </fieldset>
+          <button
+            type="submit"
+            class="ui-button ui-widget ui-corner-all btn-reservar"
+          >
+            Realizar reserva
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -13,22 +13,61 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
     <script>
+      //jquery para reservas
+      let lugar = localStorage.getItem("lugar");
+      let cantPersonas = localStorage.getItem("cantPersonas");
+      let llegada = localStorage.getItem("llegada");
+      let salida = localStorage.getItem("salida");
+      let nombreCliente = localStorage.getItem("nombreCliente");
+      let correoCliente = localStorage.getItem("correoCliente");
+
+      (function () {
+        emailjs.init("user_P9VsiCBXuKarLInlhCHSm");
+      })();
       $(document).ready(function () {
-        let lugar = localStorage.getItem("lugar");
-        let cantPersonas = localStorage.getItem("cantPersonas");
-        let llegada = localStorage.getItem("llegada");
-        let salida = localStorage.getItem("salida");
+        //configuración del correo de la cuenta emailJS de
+
         $("#datos").append("<td>" + lugar + "</td>");
         $("#datos").append("<td>" + cantPersonas + "</td>");
         $("#datos").append("<td>" + llegada + "</td>");
         $("#datos").append("<td>" + salida + "</td>");
 
         $("#btn-reserva").click(function () {
-          localStorage.clear();
-          window.location.replace("index.html");
+          sendMail();
         });
       });
+
+      //funciton para enviar correo
+      function sendMail(params) {
+        let correoRestaurante = "jhonmendex@gmail.com";
+
+        var tempParams = {
+          from_name: nombreCliente,
+          to_name: nombreCliente,
+          message:
+            "Lugar:" +
+            lugar +
+            "; personas:" +
+            cantPersonas +
+            "; entrada:" +
+            llegada +
+            "; salida:" +
+            salida,
+        };
+
+        emailjs
+          .send("service_crw6ucp", "template_u5bd0ha", tempParams)
+          .then(function (res) {
+            alert("reserva realizada");
+            localStorage.clear();
+            window.location.replace("index.html");
+          });
+      }
     </script>
   </head>
   <body>

@@ -7,8 +7,13 @@ $(document).ready(function () {
 
     let llegada = $("#datepicker_llegada").val();
     let salida = $("#datepicker_salida").val();
+    let nombreCliente = $("#nombreCliente").val();
+    let correoCliente = $("#correoCliente").val();
+
     localStorage.setItem("llegada", llegada);
     localStorage.setItem("salida", salida);
+    localStorage.setItem("nombreCliente", nombreCliente);
+    localStorage.setItem("correoCliente", correoCliente);
     window.location.replace("confirmacion.html");
   });
 });

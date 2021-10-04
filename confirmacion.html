@@ -43,12 +43,11 @@
       });
 
       //funciton para enviar correo
-      function sendMail(params) {
-        let correoRestaurante = "jhonmendex@gmail.com";
-
+      function sendMail() {
         var tempParams = {
           from_name: nombreCliente,
           to_name: nombreCliente,
+          to_email: correoCliente,
           message:
             "Lugar:" +
             lugar +
